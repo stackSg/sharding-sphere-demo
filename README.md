@@ -18,7 +18,7 @@ CREATE TABLE `course` (
 )
 ```
 
-![](https://img.stacksg.club/sharding-jdbc/%E6%B0%B4%E5%B9%B3%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8.png)
+![](https://my-guliedu.oss-cn-beijing.aliyuncs.com/sharding-jdbc/%E6%B0%B4%E5%B9%B3%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8.png)
 
 ## 参考文档
 
