@@ -184,6 +184,10 @@ Master_SSL_Verify_Server_Cert: No
 
 ![](https://my-guliedu.oss-cn-beijing.aliyuncs.com/sharding-jdbc/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6.png)
 
+# Sharing-Proxy
+
+![](https://shardingsphere.apache.org/document/current/img/shardingsphere-proxy_v2.png)
+
 ## 参考文档
 
 * [ShardingSphere官网](https://shardingsphere.apache.org/index_zh.html)
