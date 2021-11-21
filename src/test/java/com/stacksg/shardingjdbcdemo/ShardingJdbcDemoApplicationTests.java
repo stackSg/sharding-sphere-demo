@@ -84,7 +84,7 @@ class ShardingJdbcDemoApplicationTests {
     @Test
     void findUserDB(){
         QueryWrapper queryWrapper = new QueryWrapper();
-        queryWrapper.eq("user_id", 668959280048635905l);
+        queryWrapper.eq("user_id", 669191365321555969l);
         System.out.println(userMapper.selectOne(queryWrapper));
     }
 
