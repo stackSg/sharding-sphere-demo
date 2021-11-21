@@ -18,7 +18,26 @@ CREATE TABLE `course` (
 )
 ```
 
+### 架构图
+
 ![](https://my-guliedu.oss-cn-beijing.aliyuncs.com/sharding-jdbc/%E6%B0%B4%E5%B9%B3%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8.png)
+
+## 垂直分库分表
+
+### 专库专表
+
+```sql
+CREATE TABLE `t_user` (
+  `user_id` bigint(20) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `ustatus` varchar(10) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+```
+
+### 架构图
+
+![](https://my-guliedu.oss-cn-beijing.aliyuncs.com/sharding-jdbc/%E4%B8%93%E5%BA%93%E4%B8%93%E8%A1%A8.png)
 
 ## 参考文档
 

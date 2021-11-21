@@ -2,7 +2,9 @@ package com.stacksg.shardingjdbcdemo;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.stacksg.shardingjdbcdemo.entity.Course;
+import com.stacksg.shardingjdbcdemo.entity.User;
 import com.stacksg.shardingjdbcdemo.mapper.CourseMapper;
+import com.stacksg.shardingjdbcdemo.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,6 +14,9 @@ class ShardingJdbcDemoApplicationTests {
 
     @Autowired
     private CourseMapper courseMapper;
+
+    @Autowired
+    private UserMapper userMapper;
 
     /*水平分表测试*/
     /**
@@ -60,5 +65,21 @@ class ShardingJdbcDemoApplicationTests {
         queryWrapper.eq("cid", 668939709027713024l);
         queryWrapper.eq("user_id", 9);
         System.out.println(courseMapper.selectOne(queryWrapper));
+    }
+
+    /*垂直分库测试*/
+    @Test
+    void addUserDB(){
+        User user = new User();
+        user.setUsername("curry");
+        user.setUstatus("sss");
+        userMapper.insert(user);
+    }
+
+    @Test
+    void findUserDB(){
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("user_id", 668959280048635905l);
+        System.out.println(userMapper.selectOne(queryWrapper));
     }
 }
