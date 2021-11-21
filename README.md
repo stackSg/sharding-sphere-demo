@@ -39,6 +39,27 @@ CREATE TABLE `t_user` (
 
 ![](https://my-guliedu.oss-cn-beijing.aliyuncs.com/sharding-jdbc/%E4%B8%93%E5%BA%93%E4%B8%93%E8%A1%A8.png)
 
+## 公共表
+
+* 存储固定数据的表，表数据很少发生变化，查询时经常进行关联
+* 在每个数据库中创建出相同结构公共表
+* 插入时类似广播模式 每个数据库中的该表都存储相同的数据
+
+### 表结构
+
+```sql
+CREATE TABLE `t_udict` (
+  `dictid` bigint(20) NOT NULL,
+  `ustatus` varchar(100) NOT NULL,
+  `uvalue` varchar(100) NOT NULL,
+  PRIMARY KEY (`dictid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+```
+
+### 架构图
+
+![](https://my-guliedu.oss-cn-beijing.aliyuncs.com/sharding-jdbc/%E5%85%AC%E5%85%B1%E8%A1%A8.png)
+
 ## 参考文档
 
 * [ShardingSphere官网](https://shardingsphere.apache.org/index_zh.html)

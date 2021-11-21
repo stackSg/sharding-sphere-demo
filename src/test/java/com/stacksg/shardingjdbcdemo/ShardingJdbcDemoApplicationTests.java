@@ -2,8 +2,10 @@ package com.stacksg.shardingjdbcdemo;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.stacksg.shardingjdbcdemo.entity.Course;
+import com.stacksg.shardingjdbcdemo.entity.Udict;
 import com.stacksg.shardingjdbcdemo.entity.User;
 import com.stacksg.shardingjdbcdemo.mapper.CourseMapper;
+import com.stacksg.shardingjdbcdemo.mapper.UdictMapper;
 import com.stacksg.shardingjdbcdemo.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,9 @@ class ShardingJdbcDemoApplicationTests {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private UdictMapper udictMapper;
 
     /*水平分表测试*/
     /**
@@ -81,5 +86,22 @@ class ShardingJdbcDemoApplicationTests {
         QueryWrapper queryWrapper = new QueryWrapper();
         queryWrapper.eq("user_id", 668959280048635905l);
         System.out.println(userMapper.selectOne(queryWrapper));
+    }
+
+    /*公共表测试*/
+
+    @Test
+    void addUdict(){
+        Udict udict = new Udict();
+        udict.setUstatus("sss");
+        udict.setUvalue("满级");
+        udictMapper.insert(udict);
+    }
+
+    @Test
+    void delUdict(){
+        QueryWrapper<Udict> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("dictid", 669122603473960961l);
+        System.out.println(udictMapper.delete(queryWrapper));
     }
 }
